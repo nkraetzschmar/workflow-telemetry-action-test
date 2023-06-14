@@ -1,0 +1,16 @@
+on: push
+jobs:
+  upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: runforesight/workflow-telemetry-action@v1
+      - run: |
+          cp /usr/bin/sleep "foo:bar"
+          "./foo:bar" 10
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nkraetzschmar/workflow-telemetry-action@v1
+      - run: |
+          cp /usr/bin/sleep "foo:bar"
+          "./foo:bar" 10
